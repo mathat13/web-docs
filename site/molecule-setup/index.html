@@ -74,7 +74,52 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <p>In WSL:</p>
+<ul>
+<li>Make sure you are able to run docker in WSL:</li>
+</ul>
+<pre><code class="language-sh">docker ps
+</code></pre>
+<p><img alt="unnamed_a8f7bd82776345b89f6a5880c9faa5ac" src="../img/molecule-setup/unnamed_a8f7bd82776345b89f6a5880c9faa5ac.png" /></p>
+<ul>
+<li>If not, install docker desktop and go to “Settings &gt; Resources &gt; WSL integration” and make sure that ‘Ubuntu’ and integration are checked:</li>
+</ul>
+<p><img alt="unnamed_03e8ea51396a4800ac519e24ee2413e6" src="../img/molecule-setup/unnamed_03e8ea51396a4800ac519e24ee2413e6.png" /></p>
+<ul>
+<li>Make sure that our user is able to run docker without sudo:</li>
+</ul>
+<pre><code class="language-sh">sudo usermod -aG docker $USER
+</code></pre>
+<ul>
+<li>Now you should be able to run ‘docker version’ without any permission errors:</li>
+</ul>
+<p><img alt="unnamed_0b7960c265734d9f95e8e2f98cd18be9" src="../img/molecule-setup/unnamed_0b7960c265734d9f95e8e2f98cd18be9.png" /></p>
+<ul>
+<li>Install required packages:</li>
+</ul>
+<pre><code class="language-sh">sudo apt update &amp;&amp; sudo apt install -y python3-pip python3-venv python3-docker
+</code></pre>
+<ul>
+<li>Create and activate a python virtual environment:</li>
+</ul>
+<pre><code class="language-sh">python3 -m venv .venv &amp;&amp; source .venv/bin/activate
+</code></pre>
+<p>In the virtual environment:</p>
+<ul>
+<li>Install required python packages:</li>
+</ul>
+<pre><code class="language-sh">pip install molecule molecule-docker yamllint ansible-lint
+</code></pre>
+<ul>
+<li>Test docker installation and docker driver presence:</li>
+</ul>
+<pre><code class="language-sh">docker ps
+</code></pre>
+<p><img alt="unnamed_f6bd328fa52e4d8ca1a457d914f64191" src="../img/molecule-setup/unnamed_f6bd328fa52e4d8ca1a457d914f64191.png" /></p>
+<pre><code class="language-sh">molecule drivers
+</code></pre>
+<p><img alt="unnamed_1dd109a62fdf47379b110e323b9da349" src="../img/molecule-setup/unnamed_1dd109a62fdf47379b110e323b9da349.png" /></p>
+<p>With this, you should have docker and molecule working correctly in your virtual environment, follow steps here to add molecule functionality to a collection.</p>
               
             </div>
           </div><footer>
