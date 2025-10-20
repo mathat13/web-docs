@@ -2,6 +2,7 @@ site_name: Poopy Butthole
 nav:
   - Home: index.md
   - Test: test.md
+  - Molecule Setup: molecule-setup.md
 theme: 
   name: readthedocs
   color_mode: dark
