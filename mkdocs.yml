@@ -2,3 +2,7 @@ site_name: Poopy Butthole
 nav:
   - Home: index.md
   - Test: test.md
+theme: 
+  name: readthedocs
+  color_mode: dark
+  nav_style: dark
